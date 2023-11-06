@@ -1,6 +1,7 @@
 package it.unibo.inner;
 
 import it.unibo.inner.api.IterableWithPolicy;
+import it.unibo.inner.impl.IterableWIthPolicyImpl;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,7 +13,8 @@ public class TestIterablePlain {
     private TestIterablePlain() {}
 
     private static <T> IterableWithPolicy<T> getIterableWithPolicy(T[] elements) {
-        return null; // TODO: return the implementation of IterableWithPolicy
+
+        return new IterableWIthPolicyImpl<>(elements); // TODO: return the implementation of IterableWithPolicy
     }
 
     public static void main(String[] args) {
