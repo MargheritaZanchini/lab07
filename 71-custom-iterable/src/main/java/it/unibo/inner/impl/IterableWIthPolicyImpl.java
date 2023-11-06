@@ -10,8 +10,8 @@ import it.unibo.inner.api.IterableWithPolicy;
 public class IterableWIthPolicyImpl<T> implements IterableWithPolicy {
 
 
-    protected T[] array;
-    Predicate<T> filter;
+    private T[] array;
+    private Predicate<T> filter;
 
     public IterableWIthPolicyImpl(T[] array){
         this(array, (x)->true);
@@ -56,12 +56,20 @@ public class IterableWIthPolicyImpl<T> implements IterableWithPolicy {
             while(hasNext()){
                 if(filter.test(array[(current)])){
                     this.current++;
-                    //System.out.println(IterableWIthPolicyImpl.this.array[current]);
                     return IterableWIthPolicyImpl.this.array[current-1];
                 }
                 this.current++;
             }
             throw new NoSuchElementException();
+        }
+
+        public String toString(){
+            String s = "[";
+            for (T t : array) {
+                s.concat(t+",");
+            }
+            s.concat("]");
+            return s;
         }
 
     }
