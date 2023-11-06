@@ -77,13 +77,13 @@ public final class Transformers {
      */
     public static <I> List<? extends I> flatten(final Iterable<? extends Collection<? extends I>> base) {
 
-        return flattenTransform(base, Function.identity());
+        //return flattenTransform(base, Function.identity());
 
-        /*final List result = new ArrayList<I>();
+        final List result = new ArrayList<I>();
         for (Collection<? extends I> collection : base) {
             result.addAll(collection);
         }
-        return result;*/
+        return result;
     }
 
     /**
